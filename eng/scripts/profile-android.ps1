@@ -242,7 +242,7 @@ for ($i = 1; $i -le $iterations; $i++)
 # Log message of the form:
 # 12-12 09:08:36.974  1876  1898 I ActivityManager: Displayed com.mycompany.myapp/crc6450e568c951913723.MainActivity: +1s540ms
 
-$log = & $adb logcat -d | Select-String -Pattern 'Activity.*Manager.+Displayed'
+$log = & $adb logcat -d | Select-String -Pattern 'Activity.*Manager.+Displayed' 
 if ($log.Count -eq 0)
 {
     Write-Error "No ActivityManager messages found"

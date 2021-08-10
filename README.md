@@ -5,6 +5,9 @@
 Running Xamarin.Forms project
 `.\eng\scripts\profile-android.ps1 -project src/HelloForms/HelloForms.Android/HelloForms.Android.csproj -configuration Release -extra /p:USE_XAMLC=true -xamarinformsversion 4.8.0.1364 -package com.microsoft.helloforms`
 
+>>Tested
+`powershell .\eng\scripts\profile-android.ps1 -project src/HelloForms/HelloForms.Android/HelloForms.Android.csproj -configuration Release -extra /p:USE_XAMLC=true -xamarinformsversion 4.8.0.1364 -package com.microsoft.helloforms -iterations 10`
+
 Running Xamarin.Android project
 `.\eng\scripts\profile-android.ps1 -project src/HelloAndroid/HelloAndroid.csproj -package com.microsoft.helloandroid -configuration Release`
 
@@ -19,6 +22,9 @@ Running .NET6 Android project
 
 Running .NET6 MAUI project
 `.\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release`
+
+Runing Uno project
+`powershell .\eng\scripts\profile-android.ps1 -project src/HelloUno/HelloUno/HelloUno.Droid/HelloUno.Droid.csproj -configuration Release -extra /p:USE_UNO_EXT=true -package HelloUno.HelloUno -iterations 10`
 
 Current results 
 
