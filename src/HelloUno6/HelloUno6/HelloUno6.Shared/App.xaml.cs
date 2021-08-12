@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Uno.Extensions.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace HelloUno6
 {
@@ -30,13 +33,12 @@ namespace HelloUno6
         private Windows.UI.Xaml.Window _window;
 #endif
 
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
+        partial void InitHost();
+
         public App()
         {
-            InitializeLogging();
+            InitHost();
+            //InitializeLogging();
 
             this.InitializeComponent();
 

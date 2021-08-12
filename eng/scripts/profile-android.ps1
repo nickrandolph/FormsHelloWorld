@@ -158,7 +158,7 @@ Function Build-App{
 
     if (-not $msbuild)
     {
-        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\MSBuild.exe'
+        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\Enterprise\Preview\MSBuild\Current\Bin\MSBuild.exe'
         # $msbuild = 'C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Current\Bin\MSBuild.exe'
         if (-not (Test-Path $msbuild))
         {
@@ -196,7 +196,8 @@ Function Build-dotnet-App{
    
     # & $dotnet restore $project
     Write-Host "$dotnet build $project /t:$targets /p:Configuration=$configuration $extra"
-    & $dotnet build $project /t:$targets /p:Configuration=$configuration $extra -f net6.0-android
+    & $dotnet build $project /t:$targets /p:Configuration=$configuration $extra -f net6.0-android 
+    # -v diag
 }
 
 $ErrorActionPreference = 'Stop'

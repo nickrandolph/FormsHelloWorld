@@ -5,7 +5,7 @@ using Microsoft.Maui.Controls;
 
 namespace HelloMaui
 {
-	public partial class MainPage : ContentPage, IPage
+	public partial class MainPage : ContentPage//, IPage
 	{
 		public MainPage()
 		{

@@ -22,12 +22,15 @@ namespace HelloUno6
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public MainPage()
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.InitializeComponent();
-            ExtensionsText.Text = "(net6) No Extensions";
+//#if _UNO_EXT_
+//            ExtensionsText.Text = "(net6) Uno Extensions";
+//#else
+            ExtensionsText.Text = "(net6) Uno Extensions";
 
+//#endif
         }
-
     }
 }

@@ -7,7 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Padding="20">
+            <TextBlock Text="Hello, world!"
+                       Margin="20"
+                       FontSize="30" />
+            <TextBlock x:Name="ExtensionsText"
+                Foreground="Red"
+                       Margin="20"
+                       FontSize="30" />
+        </StackPanel>
     </Grid>
 </Page>

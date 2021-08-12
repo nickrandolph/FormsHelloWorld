@@ -7,17 +7,17 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HelloUno6.Shared", "HelloUn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{466D734A-9EED-40D4-9000-A787D2CF43D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloUno6.Mobile", "HelloUno6\HelloUno6.Mobile\HelloUno6.Mobile.csproj", "{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloUno6.Mobile", "HelloUno6\HelloUno6.Mobile\HelloUno6.Mobile.csproj", "{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloUno6.UWP", "HelloUno6\HelloUno6.UWP\HelloUno6.UWP.csproj", "{694E1CA0-EC5E-4F88-B4F1-DC69FB9FD09A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloUno6.Wasm", "HelloUno6\HelloUno6.Wasm\HelloUno6.Wasm.csproj", "{2F10934E-9FE5-4745-8DBD-B3ED5E2F4D29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloUno6.Wasm", "HelloUno6\HelloUno6.Wasm\HelloUno6.Wasm.csproj", "{2F10934E-9FE5-4745-8DBD-B3ED5E2F4D29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloUno6.Skia.Wpf.Host", "HelloUno6\HelloUno6.Skia.Wpf.Host\HelloUno6.Skia.Wpf.Host.csproj", "{BC6C8CE6-5792-4D16-A3C7-4B8B30E66F45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloUno6.Skia.Wpf.Host", "HelloUno6\HelloUno6.Skia.Wpf.Host\HelloUno6.Skia.Wpf.Host.csproj", "{BC6C8CE6-5792-4D16-A3C7-4B8B30E66F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloUno6.Skia.Wpf", "HelloUno6\HelloUno6.Skia.Wpf\HelloUno6.Skia.Wpf.csproj", "{7FB8FEBF-DBE0-4CC4-80B8-026A1BE01206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloUno6.Skia.Wpf", "HelloUno6\HelloUno6.Skia.Wpf\HelloUno6.Skia.Wpf.csproj", "{7FB8FEBF-DBE0-4CC4-80B8-026A1BE01206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloUno6.Skia.Gtk", "HelloUno6\HelloUno6.Skia.Gtk\HelloUno6.Skia.Gtk.csproj", "{AC962C10-2C6C-43CC-A9B0-322DE7C1EEE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloUno6.Skia.Gtk", "HelloUno6\HelloUno6.Skia.Gtk\HelloUno6.Skia.Gtk.csproj", "{AC962C10-2C6C-43CC-A9B0-322DE7C1EEE0}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -43,6 +43,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}.Debug|ARM.Build.0 = Debug|Any CPU
 		{46DF8013-B1F6-474C-A8F6-6E5C675AC74B}.Debug|ARM64.ActiveCfg = Debug|Any CPU
