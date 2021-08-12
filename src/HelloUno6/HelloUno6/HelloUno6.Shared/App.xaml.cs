@@ -1,11 +1,9 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Uno.Extensions.Hosting;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -18,7 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace HelloUno
+namespace HelloUno6
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -32,18 +30,13 @@ namespace HelloUno
         private Windows.UI.Xaml.Window _window;
 #endif
 
-#if _UNO_EXT_
-        private IHost Host { get; }
-#endif 
-
+        /// <summary>
+        /// Initializes the singleton application object.  This is the first line of authored code
+        /// executed, and as such is the logical equivalent of main() or WinMain().
+        /// </summary>
         public App()
         {
-#if _UNO_EXT_
-            Host = UnoHost
-                .CreateDefaultBuilder()
-               .Build();
-#endif
-            //InitializeLogging();
+            InitializeLogging();
 
             this.InitializeComponent();
 
@@ -66,7 +59,7 @@ namespace HelloUno
             }
 #endif
 
-#if NET5_0 && WINDOWS
+#if NET6_0_OR_GREATER && WINDOWS
             _window = new Window();
             _window.Activate();
 #else
@@ -93,7 +86,7 @@ namespace HelloUno
                 _window.Content = rootFrame;
             }
 
-#if !(NET5_0 && WINDOWS)
+#if !(NET6_0_OR_GREATER && WINDOWS)
             if (e.PrelaunchActivated == false)
 #endif
             {

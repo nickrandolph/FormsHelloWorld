@@ -158,7 +158,8 @@ Function Build-App{
 
     if (-not $msbuild)
     {
-        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe'
+        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\MSBuild.exe'
+        # $msbuild = 'C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Current\Bin\MSBuild.exe'
         if (-not (Test-Path $msbuild))
         {
             # msbuild should be in $PATH on macOS
