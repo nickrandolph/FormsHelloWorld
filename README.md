@@ -44,13 +44,13 @@ Current results
 | .NET6 Android (Preview5)                              |                    | 378.1 ms       |                       |
 | .NET6 MAUI App (6.0.0-Preview.4.634) XAMLC            |                    | 1091.2 ms      |                       |
 | .NET6 MAUI App (6.0.0-Preview.5.798) XAMLC            |                    | 1232.3 ms      |                       |
-| .NET6 MAUI App (preview 7) XAMLC                      |                    |                | 1973.75 ms            |
-| .NET6 MAUI App (preview 7) XAMLC AOT                  |                    |                | 970.5 ms              |
+| .NET6 MAUI App (preview 7)                      |                    |                | 1973.75 ms            |
+| .NET6 MAUI App (preview 7) AOT                  |                    |                | 970.5 ms              |
 | Uno - Xamarin                                         |                    |                | 1270.3 ms             |
-| Uno - Xamarin (Ext Hosting)                           |                    |                | 1605.1 ms             |
+| Uno - Xamarin (Uno.Extensions.Hosting)                           |                    |                | 1605.1 ms             |
 | Uno - .NET6                                           |                    |                | 3426 ms               |
 | Uno - .NET6 AOT                                       |                    |                | 1529.67 ms            |
-| Uno - .NET6 AOT (Ext Hosting)                         |                    |                | 1662.73 ms            |
+| Uno - .NET6 AOT (Uno.Extensions.Hosting)                         |                    |                | 1662.73 ms            |
 
 
 |  Flutter | Xamarin.Android  | Xamarin.Forms  |  MAUI |
@@ -59,53 +59,53 @@ Current results
 
 
 
-
-
-
-
-**Commands and timings
-
-powershell .\eng\scripts\profile-android.ps1 -project src/HelloForms/HelloForms.Android/HelloForms.Android.csproj -configuration Release -extra /p:USE_XAMLC=true -xamarinformsversion 5.0.0.2083 -package com.microsoft.helloforms -iterations 10
-Average(ms): 825.6
-Std Err(ms): 5.10489960724009
+**Xamarin Forms (5.0.0.2012) AOT XAMLC (Custom profile)**  
+`powershell .\eng\scripts\profile-android.ps1 -project src/HelloForms/HelloForms.Android/HelloForms.Android.csproj -configuration Release -extra /p:USE_XAMLC=true -xamarinformsversion 5.0.0.2083 -package com.microsoft.helloforms -iterations 10`  
+Average(ms): 825.6  
+Std Err(ms): 5.10489960724009  
 Std Dev(ms): 11.4149025401008
 
-powershell .\eng\scripts\profile-android.ps1 -project src/HelloUno/HelloUno/HelloUno.Droid/HelloUno.Droid.csproj -configuration Release -extra /p:USE_UNO_EXT=true -package HelloUno.HelloUno -iterations 10
-Average(ms): 1605.1
-Std Err(ms): 12.5285895277783
-Std Dev(ms): 39.6188787771128
+**.NET6 MAUI App (preview 7)**  
+`powershell .\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release`  
+Average(ms): 1973.75  
+Std Err(ms): 10.3832798286476  
+Std Dev(ms): 29.3683503111768  
 
+**.NET6 MAUI App (preview 7) AOT**  
+`powershell .\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release -extra /p:RunAOTCompilation=true`  
+Average(ms): 970.5  
+Std Err(ms): 126.726411348753  
+Std Dev(ms): 253.452822697506  
 
-powershell .\eng\scripts\profile-android.ps1 -project src/HelloUno/HelloUno/HelloUno.Droid/HelloUno.Droid.csproj -configuration Release -extra /p:USE_UNO_EXT=false -package HelloUno.HelloUno -iterations 10
-Average(ms): 1270.3
-Std Err(ms): 6.70331592903426
-Std Dev(ms): 21.1977462114359
+**Uno - Xamarin**  
+`powershell .\eng\scripts\profile-android.ps1 -project src/HelloUno/HelloUno/HelloUno.Droid/HelloUno.Droid.csproj -configuration Release -extra /p:USE_UNO_EXT=false -package HelloUno.HelloUno -iterations 10`  
+Average(ms): 1270.3  
+Std Err(ms): 6.70331592903426  
+Std Dev(ms): 21.1977462114359  
 
+**Uno - Xamarin (Uno.Extensions.Hosting)**  
+`powershell .\eng\scripts\profile-android.ps1 -project src/HelloUno/HelloUno/HelloUno.Droid/HelloUno.Droid.csproj -configuration Release -extra /p:USE_UNO_EXT=true -package HelloUno.HelloUno -iterations 10`  
+Average(ms): 1605.1  
+Std Err(ms): 12.5285895277783  
+Std Dev(ms): 39.6188787771128  
 
+**Uno - .NET6**  
+`powershell .\eng\scripts\profile-android.ps1  -dotnet dotnet -project src/HelloUno6/HelloUno6/HelloUno6.Mobile/HelloUno6.Mobile.csproj -configuration Release -extra '/p:USE_UNO_EXT=false' -target Run -package UnoQuickStart.UnoQuickStart -iterations 10`  
+Average(ms): 3426  
+Std Err(ms): 84.9157752651937  
+Std Dev(ms): 268.527259117001  
 
-powershell .\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release
-Average(ms): 1973.75
-Std Err(ms): 10.3832798286476
-Std Dev(ms): 29.3683503111768
+**Uno - .NET6 AOT**  
+`powershell .\eng\scripts\profile-android.ps1  -dotnet dotnet -project src/HelloUno6/HelloUno6/HelloUno6.Mobile/HelloUno6.Mobile.csproj -configuration Release -extra '/p:RunAOTCompilation=true;USE_UNO_EXT=false' -target Run -package UnoQuickStart.UnoQuickStart -iterations 10` 
+Average(ms): 1529.66666666667  
+Std Err(ms): 3.76533899905145  
+Std Dev(ms): 9.22315925627801  
 
-
-
-powershell .\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release -extra /p:RunAOTCompilation=true
-Average(ms): 970.5
-Std Err(ms): 126.726411348753
-Std Dev(ms): 253.452822697506
-
-
-powershell .\eng\scripts\profile-android.ps1  -dotnet dotnet -project src/HelloUno6/HelloUno6/HelloUno6.Mobile/HelloUno6.Mobile.csproj -configuration Release -extra '/p:RunAOTCompilation=true;USE_UNO_EXT=false' -target Run -package UnoQuickStart.UnoQuickStart -iterations 10
-Average(ms): 1529.66666666667
-Std Err(ms): 3.76533899905145
-Std Dev(ms): 9.22315925627801
-
-
-USE_UNO_EXT=true
-Average(ms): 1662.72727272727
-Std Err(ms): 89.4750438450542
-Std Dev(ms): 296.755148534643
+**Uno - .NET6 AOT (Uno.Extensions.Hosting)**  
+`powershell .\eng\scripts\profile-android.ps1  -dotnet dotnet -project src/HelloUno6/HelloUno6/HelloUno6.Mobile/HelloUno6.Mobile.csproj -configuration Release -extra '/p:RunAOTCompilation=true;USE_UNO_EXT=true' -target Run -package UnoQuickStart.UnoQuickStart -iterations 10`  
+Average(ms): 1662.72727272727  
+Std Err(ms): 89.4750438450542  
+Std Dev(ms): 296.755148534643  
 
 
 
