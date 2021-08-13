@@ -5,9 +5,6 @@
 Running Xamarin.Forms project
 `.\eng\scripts\profile-android.ps1 -project src/HelloForms/HelloForms.Android/HelloForms.Android.csproj -configuration Release -extra /p:USE_XAMLC=true -xamarinformsversion 4.8.0.1364 -package com.microsoft.helloforms`
 
->>Tested
-`powershell .\eng\scripts\profile-android.ps1 -project src/HelloForms/HelloForms.Android/HelloForms.Android.csproj -configuration Release -extra /p:USE_XAMLC=true -xamarinformsversion 5.0.0.2083 -package com.microsoft.helloforms -iterations 10`
-
 Running Xamarin.Android project
 `.\eng\scripts\profile-android.ps1 -project src/HelloAndroid/HelloAndroid.csproj -package com.microsoft.helloandroid -configuration Release`
 
@@ -21,38 +18,39 @@ Running .NET6 Android project
 `.\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloAndroidNet6\HelloAndroidNet6.csproj -package com.microsoft.HelloAndroidNet6 -configuration Release`
 
 Running .NET6 MAUI project
-`powershell .\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release /p:RunAOTCompilation=true`
-
-Runing Uno project
-`powershell .\eng\scripts\profile-android.ps1 -project src/HelloUno/HelloUno/HelloUno.Droid/HelloUno.Droid.csproj -configuration Release -extra /p:USE_UNO_EXT=true -package HelloUno.HelloUno -iterations 10`
-
-
-powershell .\eng\scripts\profile-android.ps1  -dotnet dotnet -project src/HelloUno6/HelloUno6/HelloUno6.Mobile/HelloUno6.Mobile.csproj -configuration Release -extra '/p:RunAOTCompilation=true;USE_UNO_EXT=false' -target Run -package UnoQuickStart.UnoQuickStart -iterations 10
+`.\eng\scripts\profile-android.ps1 -dotnet dotnet -project src\HelloMaui\HelloMaui\HelloMaui.csproj -package com.microsoft.HelloMaui -target Run -configuration Release /p:RunAOTCompilation=true`
 
 Current results 
 
-|  Platform | Samsung SM-G950F  | Google Pixel 2  | 
-|   :---    |   :-:|---|
-|  Flutter | 470.8 ms | 252.4 ms |
-|  Xamarin Android | 547.5 ms | 322.4 ms |
-|  Xamarin Android AOT | 547.5 ms | 290.2 ms  |
-|  Xamarin Android AOT (Custom profile) | 547.5 ms | 269.9 ms  |
-|  Xamarin Android AOT with Hosting (Custom profile) |  | 547.7 ms  |
-|  Xamarin Forms (4.8.0.1364) | 1196.4 ms |  947.8 ms |
-|  Xamarin Forms (4.8.0.1364) XAMLC | 1196.4 ms |  777.2 ms |
-|  Xamarin Forms (4.8.0.1364) AOT | * |  518.1 ms |
-|  Xamarin Forms (4.8.0.1364) AOT (Custom profile)| * |  492 ms |
-|  Xamarin Forms (4.8.0.1364) AOT XAMLC | * | 468.4 ms |
-|  Xamarin Forms (4.8.0.1364) AOT XAMLC (Custom profile) | *  | 452 ms |
-|  Xamarin Forms (5.0.0.2012) | *  | 1060 ms |
-|  Xamarin Forms (5.0.0.2012) XAMLC | *  | 886 ms |
-|  Xamarin Forms (5.0.0.2012) AOT XAMLC | *  | 470 ms |
-|  Xamarin Forms (5.0.0.2012) AOT XAMLC (Custom profile) | *  | 455 ms |
-|  .NET6 Android (Preview3) | | 344.4 ms |
-|  .NET6 Android (Preview4) | | 339.4 ms |
-|  .NET6 Android (Preview5) | | 378.1 ms |
-|  .NET6 MAUI App (6.0.0-Preview.4.634) XAMLC | | 1091.2 ms |
-|  .NET6 MAUI App (6.0.0-Preview.5.798) XAMLC | | 1232.3 ms |
+| Platform                                              | Samsung SM-G950F   | Google Pixel 2 | Google Pixel XL       |
+|:------------------------------------------------------|:------------------:|----------------|-----------------------|
+| Flutter                                               | 470.8 ms           | 252.4 ms       |                       |
+| Xamarin Android                                       | 547.5 ms           | 322.4 ms       |                       |
+| Xamarin Android AOT                                   | 547.5 ms           | 290.2 ms       |                       |
+| Xamarin Android AOT (Custom profile)                  | 547.5 ms           | 269.9 ms       |                       |
+| Xamarin Android AOT with Hosting (Custom profile)     |                    | 547.7 ms       |                       |
+| Xamarin Forms (4.8.0.1364)                            | 1196.4 ms          | 947.8 ms       |                       |
+| Xamarin Forms (4.8.0.1364) XAMLC                      | 1196.4 ms          | 777.2 ms       |                       |
+| Xamarin Forms (4.8.0.1364) AOT                        | *                  | 518.1 ms       |                       |
+| Xamarin Forms (4.8.0.1364) AOT (Custom profile)       | *                  | 492 ms         |                       |
+| Xamarin Forms (4.8.0.1364) AOT XAMLC                  | *                  | 468.4 ms       |                       |
+| Xamarin Forms (4.8.0.1364) AOT XAMLC (Custom profile) | *                  | 452 ms         |                       |
+| Xamarin Forms (5.0.0.2012)                            | *                  | 1060 ms        |                       |
+| Xamarin Forms (5.0.0.2012) XAMLC                      | *                  | 886 ms         |                       |
+| Xamarin Forms (5.0.0.2012) AOT XAMLC                  | *                  | 470 ms         |                       |
+| Xamarin Forms (5.0.0.2012) AOT XAMLC (Custom profile) | *                  | 455 ms         | (5.0.0.2083) 825.6 ms |
+| .NET6 Android (Preview3)                              |                    | 344.4 ms       |                       |
+| .NET6 Android (Preview4)                              |                    | 339.4 ms       |                       |
+| .NET6 Android (Preview5)                              |                    | 378.1 ms       |                       |
+| .NET6 MAUI App (6.0.0-Preview.4.634) XAMLC            |                    | 1091.2 ms      |                       |
+| .NET6 MAUI App (6.0.0-Preview.5.798) XAMLC            |                    | 1232.3 ms      |                       |
+| .NET6 MAUI App (preview 7) XAMLC                      |                    |                | 1973.75 ms            |
+| .NET6 MAUI App (preview 7) XAMLC AOT                  |                    |                | 970.5 ms              |
+| Uno - Xamarin                                         |                    |                | 1270.3 ms             |
+| Uno - Xamarin (Ext Hosting)                           |                    |                | 1605.1 ms             |
+| Uno - .NET6                                           |                    |                | 3426 ms               |
+| Uno - .NET6 AOT                                       |                    |                | 1529.67 ms            |
+| Uno - .NET6 AOT (Ext Hosting)                         |                    |                | 1662.73 ms            |
 
 
 |  Flutter | Xamarin.Android  | Xamarin.Forms  |  MAUI |
